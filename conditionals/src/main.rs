@@ -62,5 +62,6 @@ fn main() {
         num += 1;
     }
 
+    
     println!("The value of number after the loop is {}", num)
 }
