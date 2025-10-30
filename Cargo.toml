@@ -1,0 +1,6 @@
+[workspace]
+members = [
+    "variables",
+    "compound_types",
+    "primitive_types"
+, "functions", "conditionals", "ownership"]

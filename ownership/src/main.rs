@@ -15,6 +15,21 @@ fn function_that_takes_stack_data(mut data: i32) {
     data = 7;
     println!("The stack data is: {}", data);
 }
+
+fn immutable_borrow(vec: &Vec<i32>) {
+    println!("The immutably borrowed vector is: {:?}", vec);
+}
+
+fn mutable_borrow(vec: &mut Vec<i32>) {
+    vec.push(12);
+}
+
+fn mixed_borrows(subject: &String, score: &mut Vec<i32>) {
+    println!("The subject {} and score before {:?}", subject, score);
+    score.push(7);
+    println!("The subject {} and score after {:?}", subject, score);
+
+}
 fn main() {
     let vec = vec![12, 34, 87, 0];
  
@@ -33,4 +48,13 @@ fn main() {
     function_that_takes_stack_data(x);
 
     println!("The data is still valid and not moved {}", x);
+
+
+    // Borrowing
+
+    let vec_ref = vec![1, 2, 3, 4, 5, 6];
+
+    // Immutable borrow
+    let vec_ref1 = &vec_ref;
+    let vec_ref2 = &vec_ref;
 }
