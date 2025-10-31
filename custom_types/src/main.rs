@@ -1,3 +1,5 @@
+use core::num;
+
 #[derive(Debug)]
 struct Book {
     name: String,
@@ -27,6 +29,14 @@ impl Book {
     }
 }
 
+fn check_even_number(number: u16) -> Option<u16> {
+    if number % 2 == 0 {
+        Some(number)
+    } else {
+        None
+    }
+}
+
 fn main() {
     let book: Book = Book {
         name: String::from("The journey of a thousand miles"),
@@ -45,4 +55,10 @@ fn main() {
 
     println!("The book details is {book:?}");
     println!("The book details created with a contructor function is {book1:?}");
+
+    let even_check = check_even_number(8);
+    println!("The result from the even number check is: {:?}", even_check.unwrap());
+
+    let even_check1 = check_even_number(3);
+    println!("The result from the even number check is: {:?}", even_check1);
 }
