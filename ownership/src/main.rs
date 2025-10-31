@@ -57,4 +57,32 @@ fn main() {
     // Immutable borrow
     let vec_ref1 = &vec_ref;
     let vec_ref2 = &vec_ref;
+
+    // Dereferrencing of stack and heap allocated data
+
+    // Dereferencing stack allocated data
+    let mut data = 45;
+    let ref_1 = &mut data;
+    // data is copied
+    let deref_copy = *ref_1;
+    println!("The value of deref copy is: {}", deref_copy);
+    *ref_1 = 7;
+    println!("The value os deref_copy is: {}", deref_copy);
+    println!("The value of data is: {}", data);
+
+    // Dereferencing heap allocated data
+    let mut data = vec![1, 2, 3, 4, 5, 6];
+    let ref_1 = &mut data;
+
+    ref_1.push(7);
+    // *ref_1.push(7); Wrong way of derefencing and updating heap allocated data
+    (*ref_1).push(7);
+
+    println!("The reference data is {:?}", ref_1);
+
+    let tuple = (String::from("suleiman"), 8);
+
+    let (ref name, age) = tuple;
+
+    println!("The data is: {}", tuple.0)
 }
