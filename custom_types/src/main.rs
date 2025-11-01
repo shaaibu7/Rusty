@@ -8,6 +8,11 @@ struct Book {
     year: u16,
 }
 
+// Tuple struct
+
+#[derive(Debug)]
+struct Config(u8, String, u8);
+
 impl Book {
     // Constructor function to create new book
     fn new_book(name: String, isbn: String, author: String, year: u16) -> Self {
@@ -61,4 +66,10 @@ fn main() {
 
     let even_check1 = check_even_number(3);
     println!("The result from the even number check is: {:?}", even_check1);
+
+    // Tuple struct
+    let config = Config(89, String::from("data_cat"), 77);
+
+    println!("Here is an example of a tuple struct {config:?}");
+    println!("Data in a tuple struct can be accessed like this: config_no: {} config_name: {} config_version {}", config.0, config.1, config.2);
 }
