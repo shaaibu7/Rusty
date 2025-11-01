@@ -1,4 +1,4 @@
-use core::num;
+use std::collections::HashMap;
 
 #[derive(Debug)]
 struct Book {
@@ -12,6 +12,15 @@ struct Book {
 
 #[derive(Debug)]
 struct Config(u8, String, u8);
+
+// enums
+
+#[derive(Debug)]
+enum Decision {
+    Yes,
+    No,
+    Maybe
+}
 
 impl Book {
     // Constructor function to create new book
@@ -72,4 +81,18 @@ fn main() {
 
     println!("Here is an example of a tuple struct {config:?}");
     println!("Data in a tuple struct can be accessed like this: config_no: {} config_name: {} config_version {}", config.0, config.1, config.2);
+
+
+    // Enums
+    println!("Output different decisions and choices: No: {:?} Yes: {:?} Maybe: {:?}", Decision::No, Decision::Yes, Decision::Maybe);
+
+    // Hashmap
+    let mut hashmap: HashMap<u8, &str> = HashMap::new();
+    
+    for i in  0..=10 {
+        hashmap.insert(i, "suleiman");
+
+    }
+    println!("The output of the hashmap is: {:?}", hashmap);
+
 }
